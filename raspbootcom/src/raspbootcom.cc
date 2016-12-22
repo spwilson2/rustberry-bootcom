@@ -16,7 +16,7 @@
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
-#define _BSD_SOURCE             /* See feature_test_macros(7) */
+//#define _BSD_SOURCE             /* See feature_test_macros(7) */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -187,7 +187,7 @@ void send_kernel(int fd, const char *file) {
     return;
 }
 
-int main(int argc, char *argv[]) {
+extern "C" int run(int argc, char *argv[]) {
     int fd, max_fd = STDIN_FILENO;
     fd_set rfds, wfds, efds;
     char buf[BUF_SIZE];

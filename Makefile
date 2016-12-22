@@ -17,13 +17,4 @@
 
 all:
 	$(MAKE) -C raspbootin $@
-	$(MAKE) -C raspbootcom $@
-
-%:
-	$(MAKE) -C raspbootin $@
-	$(MAKE) -C raspbootcom $@
-
-dist-clean:
-	$(MAKE) -C raspbootin $@
-	$(MAKE) -C raspbootcom $@
-	find -name "*~" -delete
+	cargo build --release --manifest-path $(DIR)raspbootcom/Cargo.toml; mv $(DIR)raspbootcom/target/release/raspbootcom $(DIR)raspbootcom/raspbootcom
